@@ -13,8 +13,8 @@ class EnhancedExecutor(executor.Executor, consolex.Consolex):
     def printMemory(self, rows, cols):
         for row in range(rows):
             for col in range(cols):
-                print "%X" % self.memory[row * cols + col],
-            print
+                print("%X" % self.memory[row * cols + col])
+            print()
 
     def c_3ff(self):
         self.printRegs()
@@ -26,7 +26,7 @@ class EnhancedExecutor(executor.Executor, consolex.Consolex):
         self.printMemory(4, 16)
 
 
-def loadSource():
+def loadSource2():
     if len(sys.argv) < 2:
         raise Exception('Source file should be specified!')
     fileName = sys.argv[1]
@@ -35,6 +35,11 @@ def loadSource():
     f.close()
     return lines
 
+def loadSource(fileName):
+    f = open(fileName)
+    lines = f.readlines()
+    f.close()
+    return lines
 
 def fetchState(cpu):
     for i in range(2, len(sys.argv)):
@@ -43,7 +48,7 @@ def fetchState(cpu):
 
 def main():
     try:
-        src = loadSource()
+        src = loadSource(input("Enter filename: "))
         prg = translator.translate(src)
         cpu = EnhancedExecutor()
         fetchState(cpu)
@@ -53,4 +58,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    while True:
+        main()
+        input()
