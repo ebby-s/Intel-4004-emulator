@@ -1,8 +1,4 @@
-import sys
-from intel4004_emu import translator
-from intel4004_emu import executor
-from intel4004_emu import consolex
-
+import sys, translator, executor, consolex
 
 class EnhancedExecutor(executor.Executor, consolex.Consolex):
     
