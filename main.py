@@ -26,15 +26,6 @@ class EnhancedExecutor(executor.Executor, consolex.Consolex):
         self.printMemory(4, 16)
 
 
-def loadSource2():
-    if len(sys.argv) < 2:
-        raise Exception('Source file should be specified!')
-    fileName = sys.argv[1]
-    f = open(fileName)
-    lines = f.readlines()
-    f.close()
-    return lines
-
 def loadSource(fileName):
     f = open(fileName)
     lines = f.readlines()
