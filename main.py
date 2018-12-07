@@ -21,7 +21,6 @@ class EnhancedExecutor(executor.Executor, consolex.Consolex):
     def c_3fd(self):
         self.printMemory(4, 16)
 
-
 def loadSource(fileName):
     f = open(fileName)
     lines = f.readlines()
@@ -31,7 +30,6 @@ def loadSource(fileName):
 def fetchState(cpu):
     for i in range(2, len(sys.argv)):
         cpu.regs[i - 2] = int(sys.argv[i])
-
 
 def main():
     try:
